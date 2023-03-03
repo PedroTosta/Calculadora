@@ -16,6 +16,52 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
     
+    public void resultado(){
+        String op = txtOp.getText();
+        v1 = Double.parseDouble(txtResultado1.getText());
+        v2 = Double.parseDouble(txtResultado2.getText());
+        if(op.equals("+")){            
+            result = v1 + v2;
+            txtResultado1.setText(v1 + " + " + v2 + " = ");
+            txtResultado2.setText(String.valueOf(result));
+        }
+        if(op.equals("-")){            
+            result = v1 - v2;
+            txtResultado1.setText(v1 + " - " + v2 + " = ");
+            txtResultado2.setText(String.valueOf(result));
+        }
+        if(op.equals("X")){      
+            result = v1 * v2;
+            txtResultado1.setText(v1 + " X " + v2 + " = ");
+            txtResultado2.setText(String.valueOf(result));
+        }
+        if(op.equals("/")){            
+            result = v1 / v2;
+            txtResultado1.setText(v1 + " / " + v2 + " = ");
+            txtResultado2.setText(String.valueOf(result));
+        }
+    }
+    
+    public void porcentagem(){
+        String op = txtOp.getText();
+        v1 = Double.parseDouble(txtResultado1.getText());
+        v2 = Double.parseDouble(txtResultado2.getText());
+        if(op.equals("X")){
+            result = v1 * (v2/100);
+            txtResultado1.setText(v1 + " X " + v2 + " = ");
+            txtResultado2.setText(String.valueOf(result));
+        }
+        if(op.equals("-")){
+            result = v1 - (v1 * (v2/100));
+            txtResultado1.setText(v1 + " - " + v2 + " = ");
+            txtResultado2.setText(String.valueOf(result));
+        }
+    }
+    
+    Double v1 = 0.00;
+    Double v2 = 0.00;
+    Double result = 0.00;
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,26 +71,26 @@ public class Calculadora extends javax.swing.JFrame {
         txtResultado1 = new javax.swing.JLabel();
         txtOp = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnPorcentagem = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnApagar = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnDivisao = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnMultiplicacao = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnSubtrair = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         btnSoma = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnSinal = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnIgual = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
@@ -84,9 +130,14 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new java.awt.GridLayout(5, 4));
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton1.setText("%");
-        jPanel2.add(jButton1);
+        btnPorcentagem.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btnPorcentagem.setText("%");
+        btnPorcentagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPorcentagemActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnPorcentagem);
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jButton2.setText("C");
@@ -106,14 +157,14 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel2.add(btnApagar);
 
-        jButton11.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton11.setText("/");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        btnDivisao.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btnDivisao.setText("/");
+        btnDivisao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                btnDivisaoActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton11);
+        jPanel2.add(btnDivisao);
 
         jButton15.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jButton15.setText("7");
@@ -142,9 +193,14 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel2.add(jButton20);
 
-        jButton6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton6.setText("X");
-        jPanel2.add(jButton6);
+        btnMultiplicacao.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btnMultiplicacao.setText("X");
+        btnMultiplicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicacaoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnMultiplicacao);
 
         jButton4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jButton4.setText("4");
@@ -173,9 +229,14 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel2.add(jButton14);
 
-        jButton7.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        jButton7.setText("-");
-        jPanel2.add(jButton7);
+        btnSubtrair.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        btnSubtrair.setText("-");
+        btnSubtrair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubtrairActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSubtrair);
 
         jButton13.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jButton13.setText("1");
@@ -213,9 +274,14 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel2.add(btnSoma);
 
-        jButton9.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton9.setText("+/-");
-        jPanel2.add(jButton9);
+        btnSinal.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btnSinal.setText("+/-");
+        btnSinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSinalActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSinal);
 
         jButton12.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jButton12.setText("0");
@@ -228,16 +294,21 @@ public class Calculadora extends javax.swing.JFrame {
 
         jButton18.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jButton18.setText(".");
-        jPanel2.add(jButton18);
-
-        jButton8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton8.setText("=");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButton18ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8);
+        jPanel2.add(jButton18);
+
+        btnIgual.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btnIgual.setText("=");
+        btnIgual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIgualActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnIgual);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -313,9 +384,11 @@ public class Calculadora extends javax.swing.JFrame {
         adicionar("0");
     }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void btnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisaoActionPerformed
+        txtOp.setText("/");
+        txtResultado1.setText(txtResultado2.getText());
+        txtResultado2.setText("0");
+    }//GEN-LAST:event_btnDivisaoActionPerformed
 
     private void btnSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomaActionPerformed
         txtOp.setText("+");
@@ -323,15 +396,41 @@ public class Calculadora extends javax.swing.JFrame {
         txtResultado2.setText("0");
     }//GEN-LAST:event_btnSomaActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String op = txtOp.getText();
-        if(op.equals("+")){
-            Double v1 = Double.parseDouble(txtResultado1.getText());
-            Double v2 = Double.parseDouble(txtResultado2.getText());
-            txtResultado1.setText(v1 + " + " + v2 + " = ");
-            txtResultado2.setText((v1+v2));
+    private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
+        resultado();
+    }//GEN-LAST:event_btnIgualActionPerformed
+
+    private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtrairActionPerformed
+        txtOp.setText("-");
+        txtResultado1.setText(txtResultado2.getText());
+        txtResultado2.setText("0");
+    }//GEN-LAST:event_btnSubtrairActionPerformed
+
+    private void btnMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacaoActionPerformed
+        txtOp.setText("X");
+        txtResultado1.setText(txtResultado2.getText());
+        txtResultado2.setText("0");
+    }//GEN-LAST:event_btnMultiplicacaoActionPerformed
+
+    private void btnPorcentagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcentagemActionPerformed
+        porcentagem();
+    }//GEN-LAST:event_btnPorcentagemActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        String texto = txtResultado2.getText();
+        String txt = txtResultado2.getText() + ".";
+        txtResultado2.setText(txt);
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void btnSinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSinalActionPerformed
+        v2 = Double.parseDouble(txtResultado2.getText());
+        if(v2 > 0){
+            String txt = "-" + txtResultado2.getText();
+            txtResultado2.setText(txt);
+        }else if(v2 < 0){
+            txtResultado2.setText(txtResultado2.getText().substring(1, txtResultado2.getText().length()));            
         }
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnSinalActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -361,10 +460,14 @@ public class Calculadora extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApagar;
+    private javax.swing.JButton btnDivisao;
+    private javax.swing.JButton btnIgual;
+    private javax.swing.JButton btnMultiplicacao;
+    private javax.swing.JButton btnPorcentagem;
+    private javax.swing.JButton btnSinal;
     private javax.swing.JButton btnSoma;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSubtrair;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
@@ -376,10 +479,6 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel txtOp;
