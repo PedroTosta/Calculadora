@@ -62,6 +62,14 @@ public class Calculadora extends javax.swing.JFrame {
     Double v2 = 0.00;
     Double result = 0.00;
     
+    /*
+    
+    if(evt.getKeyCode() == 55){
+           this.dispose();
+        }
+    
+    */
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -171,11 +179,6 @@ public class Calculadora extends javax.swing.JFrame {
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
-            }
-        });
-        jButton15.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton15KeyPressed(evt);
             }
         });
         jPanel2.add(jButton15);
@@ -436,12 +439,6 @@ public class Calculadora extends javax.swing.JFrame {
             txtResultado2.setText(txtResultado2.getText().substring(1, txtResultado2.getText().length()));            
         }
     }//GEN-LAST:event_btnSinalActionPerformed
-
-    private void jButton15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton15KeyPressed
-        if(evt.getKeyCode() == 55){
-           this.dispose();
-        }
-    }//GEN-LAST:event_jButton15KeyPressed
 
     public static void main(String args[]) {
         try {
