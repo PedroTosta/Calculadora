@@ -23,7 +23,7 @@ public class Calculadora extends javax.swing.JFrame {
         String op = txtOp.getText();
         v1 = Double.parseDouble(txtResultado1.getText());
         v2 = Double.parseDouble(txtResultado2.getText());
-        if(op.equals("+")){            
+        if(op.equals("+")){
             result = v1 + v2;
             txtResultado1.setText(v1 + " + " + v2 + " = ");
             txtResultado2.setText(String.valueOf(result));
@@ -70,15 +70,7 @@ public class Calculadora extends javax.swing.JFrame {
     
     Double v1 = 0.00;
     Double v2 = 0.00;
-    Double result = 0.00;
-    
-    /*
-    
-    if(evt.getKeyCode() == 55){
-           this.dispose();
-        }
-    
-    */
+    Double result = 0.00;    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -135,11 +127,11 @@ public class Calculadora extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txtResultado2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(txtResultado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtResultado1, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtOp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(243, 243, 243)
+                .addGap(248, 248, 248)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
