@@ -15,7 +15,7 @@ public class Calculadora extends javax.swing.JFrame {
             txtResultado2.setText(txt);
         }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -232,6 +232,11 @@ public class Calculadora extends javax.swing.JFrame {
 
         jButton8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jButton8.setText("=");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -317,6 +322,16 @@ public class Calculadora extends javax.swing.JFrame {
         txtResultado1.setText(txtResultado2.getText());
         txtResultado2.setText("0");
     }//GEN-LAST:event_btnSomaActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String op = txtOp.getText();
+        if(op.equals("+")){
+            Double v1 = Double.parseDouble(txtResultado1.getText());
+            Double v2 = Double.parseDouble(txtResultado2.getText());
+            txtResultado1.setText(v1 + " + " + v2 + " = ");
+            txtResultado2.setText((v1+v2));
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     public static void main(String args[]) {
         try {
