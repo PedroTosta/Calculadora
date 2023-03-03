@@ -173,6 +173,11 @@ public class Calculadora extends javax.swing.JFrame {
                 jButton15ActionPerformed(evt);
             }
         });
+        jButton15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton15KeyPressed(evt);
+            }
+        });
         jPanel2.add(jButton15);
 
         jButton16.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -431,6 +436,12 @@ public class Calculadora extends javax.swing.JFrame {
             txtResultado2.setText(txtResultado2.getText().substring(1, txtResultado2.getText().length()));            
         }
     }//GEN-LAST:event_btnSinalActionPerformed
+
+    private void jButton15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton15KeyPressed
+        if(evt.getKeyCode() == 55){
+           this.dispose();
+        }
+    }//GEN-LAST:event_jButton15KeyPressed
 
     public static void main(String args[]) {
         try {
