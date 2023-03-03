@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 public class Calculadora extends javax.swing.JFrame {
 
@@ -37,10 +38,17 @@ public class Calculadora extends javax.swing.JFrame {
             txtResultado1.setText(v1 + " X " + v2 + " = ");
             txtResultado2.setText(String.valueOf(result));
         }
-        if(op.equals("/")){            
-            result = v1 / v2;
-            txtResultado1.setText(v1 + " / " + v2 + " = ");
-            txtResultado2.setText(String.valueOf(result));
+        if(op.equals("/")){
+            if(v1 == 0 && v2 == 0){
+                txtResultado2.setText("0");
+                txtResultado1.setText("0");
+                txtOp.setText("");
+                JOptionPane.showMessageDialog(null, "Informe outro valor.");
+            }else{
+                result = v1 / v2;
+                txtResultado1.setText(v1 + " / " + v2 + " = ");
+                txtResultado2.setText(String.valueOf(result));
+            }
         }
     }
     
