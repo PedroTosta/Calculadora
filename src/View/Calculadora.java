@@ -50,6 +50,7 @@ public class Calculadora extends javax.swing.JFrame {
                 txtResultado2.setText(String.valueOf(result));
             }
         }
+        txtOp.setText("");
     }
     
     public void porcentagem(){
@@ -110,13 +111,16 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtResultado2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtResultado2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txtResultado2.setText("0");
         txtResultado2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         txtResultado1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtResultado1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txtResultado1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         txtOp.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtOp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txtOp.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -126,15 +130,18 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtResultado2, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(txtResultado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtOp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(248, 248, 248)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtResultado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtOp, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtResultado2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
