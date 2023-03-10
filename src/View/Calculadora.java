@@ -111,6 +111,7 @@ public class Calculadora extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
@@ -184,6 +185,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2);
 
+        btnApagar.setBackground(new java.awt.Color(255, 0, 0));
         btnApagar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btnApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backspace.png"))); // NOI18N
         btnApagar.addActionListener(new java.awt.event.ActionListener() {
@@ -359,6 +361,14 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setText("Alterar cor do apagador");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -512,6 +522,12 @@ public class Calculadora extends javax.swing.JFrame {
         btnIgual.setBackground(cor);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Color CorPadrao = (new java.awt.Color(255,0,0));
+        Color cor = JColorChooser.showDialog(this, "Escolha uma cor para o botão apagador", CorPadrao);
+        btnApagar.setBackground(cor);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -563,6 +579,7 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel txtOp;
