@@ -1,6 +1,8 @@
 package View;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 
 public class Calculadora extends javax.swing.JFrame {
@@ -20,34 +22,36 @@ public class Calculadora extends javax.swing.JFrame {
     }
     
     public double resultado(){
-        String op = txtOp.getText();
-        v1 = Double.parseDouble(txtResultado1.getText());
-        v2 = Double.parseDouble(txtResultado2.getText());
-        if(op.equals("+")){
-            result = v1 + v2;
-            txtResultado1.setText(v1 + " + " + v2 + " = ");
-            txtResultado2.setText(String.valueOf(result));
-        }
-        if(op.equals("-")){            
-            result = v1 - v2;
-            txtResultado1.setText(v1 + " - " + v2 + " = ");
-            txtResultado2.setText(String.valueOf(result));
-        }
-        if(op.equals("X")){      
-            result = v1 * v2;
-            txtResultado1.setText(v1 + " X " + v2 + " = ");
-            txtResultado2.setText(String.valueOf(result));
-        }
-        if(op.equals("/")){
-            if(v1 == 0 && v2 == 0){
-                txtResultado2.setText("0");
-                txtResultado1.setText("0");
-                txtOp.setText("");
-                JOptionPane.showMessageDialog(null, "Informe outro valor.");
-            }else{
-                result = v1 / v2;
-                txtResultado1.setText(v1 + " / " + v2 + " = ");
+        if(txtOp.getText() != ""){
+            String op = txtOp.getText();
+            v1 = Double.parseDouble(txtResultado1.getText());
+            v2 = Double.parseDouble(txtResultado2.getText());
+            if(op.equals("+")){
+                result = v1 + v2;
+                txtResultado1.setText(v1 + " + " + v2 + " = ");
                 txtResultado2.setText(String.valueOf(result));
+            }
+            if(op.equals("-")){            
+                result = v1 - v2;
+                txtResultado1.setText(v1 + " - " + v2 + " = ");
+                txtResultado2.setText(String.valueOf(result));
+            }
+            if(op.equals("X")){      
+                result = v1 * v2;
+                txtResultado1.setText(v1 + " X " + v2 + " = ");
+                txtResultado2.setText(String.valueOf(result));
+            }
+            if(op.equals("/")){
+                if(v1 == 0 && v2 == 0){
+                    txtResultado2.setText("0");
+                    txtResultado1.setText("0");
+                    txtOp.setText("");
+                    JOptionPane.showMessageDialog(null, "Informe outro valor.");
+                }else{
+                    result = v1 / v2;
+                    txtResultado1.setText(v1 + " / " + v2 + " = ");
+                    txtResultado2.setText(String.valueOf(result));
+                }
             }
         }
         txtOp.setText("");
@@ -104,6 +108,9 @@ public class Calculadora extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         btnIgual = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
@@ -132,17 +139,17 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(248, 248, 248)
-                .addComponent(jLabel1)
-                .addContainerGap(251, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtResultado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtResultado1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtOp, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtResultado2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(218, 218, 218)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,6 +337,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel2.add(jButton18);
 
+        btnIgual.setBackground(new java.awt.Color(0, 255, 0));
         btnIgual.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btnIgual.setText("=");
         btnIgual.addActionListener(new java.awt.event.ActionListener() {
@@ -339,12 +347,28 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel2.add(btnIgual);
 
+        jMenuBar1.setBorder(null);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu-bar.png"))); // NOI18N
+
+        jMenuItem1.setText("Alterar cor do igual");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -482,6 +506,12 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSinalActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Color CorPadrao = (new java.awt.Color(0,255,0));
+        Color cor = JColorChooser.showDialog(this, "Escolha uma cor para o botão igual", CorPadrao);
+        btnIgual.setBackground(cor);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -530,6 +560,9 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel txtOp;
