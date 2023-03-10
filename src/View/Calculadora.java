@@ -14,12 +14,12 @@ public class Calculadora extends javax.swing.JFrame {
         if (texto == "0") {
             txtResultado2.setText(valor);
         } else {
-            String txt = txtResultado2.getText() + valor;
-            txtResultado2.setText(txt);
+            //String txt = txtResultado2.getText() + valor;
+            txtResultado2.setText(txtResultado2.getText().concat(valor));
         }
     }
     
-    public void resultado(){
+    public double resultado(){
         String op = txtOp.getText();
         v1 = Double.parseDouble(txtResultado1.getText());
         v2 = Double.parseDouble(txtResultado2.getText());
@@ -51,6 +51,7 @@ public class Calculadora extends javax.swing.JFrame {
             }
         }
         txtOp.setText("");
+        return result;
     }
     
     public void porcentagem(){
@@ -414,12 +415,22 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void btnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisaoActionPerformed
+       if(txtResultado1.getText() != ""){
+            result = resultado();
+            txtResultado1.setText(String.valueOf(result));
+            txtOp.setText("/");
+        }
         txtOp.setText("/");
         txtResultado1.setText(txtResultado2.getText());
         txtResultado2.setText("0");
     }//GEN-LAST:event_btnDivisaoActionPerformed
 
     private void btnSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomaActionPerformed
+       if(txtResultado1.getText() != ""){
+            result = resultado();
+            txtResultado1.setText(String.valueOf(result));
+            txtOp.setText("+");
+        }
         txtOp.setText("+");
         txtResultado1.setText(txtResultado2.getText());
         txtResultado2.setText("0");
@@ -430,12 +441,22 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtrairActionPerformed
+        if(txtResultado1.getText() != ""){
+            result = resultado();
+            txtResultado1.setText(String.valueOf(result));
+            txtOp.setText("-");
+        }
         txtOp.setText("-");
         txtResultado1.setText(txtResultado2.getText());
         txtResultado2.setText("0");
     }//GEN-LAST:event_btnSubtrairActionPerformed
 
     private void btnMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacaoActionPerformed
+        if(txtResultado1.getText() != ""){
+            result = resultado();
+            txtResultado1.setText(String.valueOf(result));
+            txtOp.setText("X");
+        }
         txtOp.setText("X");
         txtResultado1.setText(txtResultado2.getText());
         txtResultado2.setText("0");
